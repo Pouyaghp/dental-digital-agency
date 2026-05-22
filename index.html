@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dental Digital Agency — Premium Dental Marketing</title>
+  <meta name="description" content="The UK's leading luxury digital agency for dental practices. Websites, SEO, marketing, branding and app development built to attract premium patients." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════
+       ROOT VARIABLES — MIDNIGHT GOLD PALETTE
+    ═══════════════════════════════════════════ */
+    :root {
+      --bg-primary:    #070710;
+      --bg-secondary:  #0d0d1a;
+      --bg-card:       #0f0f1e;
+      --bg-card-hover: #141428;
+      --gold-primary:  #C9A84C;
+      --gold-light:    #E8C96A;
+      --gold-dark:     #9A7A35;
+      --gold-pale:     rgba(201,168,76,0.12);
+      --gold-glow:     rgba(201,168,76,0.25);
+      --text-primary:  #F5F0E8;
+      --text-muted:    #8A8070;
+      --text-dim:      #5A5040;
+      --border:        rgba(201,168,76,0.18);
+      --border-strong: rgba(201,168,76,0.4);
+      --radius:        4px;
+      --radius-lg:     8px;
+      --transition:    0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ═══════════════════════════════════════════
+       TYPOGRAPHY
+    ═══════════════════════════════════════════ */
+    .serif { font-family: 'Playfair Display', serif; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.2; }
+    .gold { color: var(--gold-primary); }
+    .gold-gradient {
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 45%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ═══════════════════════════════════════════
+       UTILITY
+    ═══════════════════════════════════════════ */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 120px 0; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold-primary);
+      margin-bottom: 20px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; display: block;
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary));
+    }
+    .section-label::after {
+      background: linear-gradient(90deg, var(--gold-primary), transparent);
+    }
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 20px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+    .divider {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      margin: 24px 0;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+      color: #070710;
+    }
+    .btn-gold::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+      opacity: 0; transition: var(--transition);
+    }
+    .btn-gold:hover::before { opacity: 1; }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.35); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--gold-primary);
+      border: 1px solid var(--border-strong);
+    }
+    .btn-ghost:hover {
+      background: var(--gold-pale);
+      box-shadow: 0 0 24px var(--gold-glow);
+      transform: translateY(-2px);
+    }
+    .btn span { position: relative; z-index: 1; }
+
+    /* ═══════════════════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ═══════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 24px 0;
+      transition: all 0.4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(7,7,16,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+    }
+    /* DDA Logo */
+    .nav-logo {
+      display: flex; align-items: center; gap: 14px;
+      cursor: pointer;
+    }
+    .logo-monogram {
+      width: 46px; height: 46px;
+      position: relative;
+    }
+    .logo-text-wrap {
+      display: flex; flex-direction: column; line-height: 1.1;
+    }
+    .logo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-weight: 700;
+      letter-spacing: 0.05em;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .logo-subtitle {
+      font-size: 8.5px; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+    }
+    .nav-links a {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold-primary);
+      transform: scaleX(0); transform-origin: right;
+      transition: transform var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold-primary); }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav-cta { padding: 10px 24px; font-size: 11px; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--gold-primary);
+      transition: var(--transition);
+    }
+
+    /* Mobile nav */
+    #mobile-menu {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999;
+      background: rgba(7,7,16,0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 40px;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; color: var(--text-primary);
+      transition: color var(--transition);
+    }
+    #mobile-menu a:hover { color: var(--gold-primary); }
+    #mobile-menu .close-btn {
+      position: absolute; top: 28px; right: 32px;
+      font-size: 28px; color: var(--gold-primary);
+      cursor: pointer; line-height: 1;
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%),
+                  var(--bg-primary);
+    }
+    #particles-canvas {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .hero-grid-line {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 120px 32px 80px;
+      max-width: 900px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 20px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: rgba(201,168,76,0.06);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 40px;
+      animation: fadeInDown 0.9s ease both;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold-primary);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700; line-height: 1.1;
+      margin-bottom: 28px;
+      animation: fadeInUp 1s ease 0.15s both;
+    }
+    .hero-title em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 45%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-muted); max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.8;
+      animation: fadeInUp 1s ease 0.3s both;
+    }
+    .hero-ctas {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 16px;
+      animation: fadeInUp 1s ease 0.45s both;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--text-dim);
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      animation: fadeIn 1s ease 1.2s both;
+    }
+    .hero-scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, var(--gold-primary), transparent);
+      animation: scrollLine 2s infinite;
+    }
+    @keyframes scrollLine {
+      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      40% { opacity: 1; transform: scaleY(1); }
+      80% { opacity: 0; transform: scaleY(1); }
+      100% { opacity: 0; }
+    }
+
+    /* HERO MARQUEE */
+    .hero-marquee-wrap {
+      position: absolute; bottom: 100px; left: 0; right: 0;
+      overflow: hidden; pointer-events: none;
+    }
+    .hero-marquee {
+      display: flex; gap: 60px;
+      white-space: nowrap;
+      animation: marquee 28s linear infinite;
+    }
+    .hero-marquee span {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .hero-marquee .dot { color: var(--gold-primary); }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════════
+       TRUST STRIP
+    ═══════════════════════════════════════════ */
+    #trust {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+      background: var(--bg-secondary);
+    }
+    .trust-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .trust-item {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+    }
+    .trust-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .trust-label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .trust-sep {
+      width: 1px; height: 40px;
+      background: var(--border);
+    }
+
+    /* ═══════════════════════════════════════════
+       ABOUT / INTRO
+    ═══════════════════════════════════════════ */
+    #about { background: var(--bg-primary); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-frame {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-card);
+      padding: 48px;
+    }
+    .about-frame::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    }
+    .about-frame-deco {
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 100px; height: 100px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-secondary);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-inner-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; margin-top: 32px;
+    }
+    .about-stat-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      background: var(--bg-secondary);
+      transition: var(--transition);
+    }
+    .about-stat-card:hover {
+      border-color: var(--border-strong);
+      background: var(--gold-pale);
+    }
+    .about-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--gold-primary);
+      display: block;
+    }
+    .about-stat-lbl {
+      font-size: 11px; color: var(--text-muted);
+      font-weight: 600; letter-spacing: 0.1em;
+    }
+    .about-content .section-sub { margin-bottom: 32px; }
+    .about-pillars {
+      display: flex; flex-direction: column; gap: 14px;
+      margin-bottom: 36px;
+    }
+    .about-pillar {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 0.95rem; color: var(--text-muted);
+    }
+    .about-pillar-icon {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--gold-primary); flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       SERVICES
+    ═══════════════════════════════════════════ */
+    #services { background: var(--bg-secondary); }
+    .services-header { text-align: center; margin-bottom: 70px; }
+    .services-header .section-sub { margin: 0 auto; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      background: var(--bg-card);
+      transition: var(--transition);
+      overflow: hidden;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      opacity: 0; transition: var(--transition);
+    }
+    .service-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at top center, rgba(201,168,76,0.06), transparent 70%);
+      opacity: 0; transition: var(--transition);
+    }
+    .service-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 40px rgba(201,168,76,0.08);
+      background: var(--bg-card-hover);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover::after  { opacity: 1; }
+    .service-card:hover .service-icon { color: var(--gold-light); }
+    .service-num {
+      position: absolute; top: 20px; right: 24px;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem; font-weight: 700;
+      color: rgba(201,168,76,0.05);
+      line-height: 1;
+      transition: var(--transition);
+    }
+    .service-card:hover .service-num { color: rgba(201,168,76,0.1); }
+    .service-icon {
+      font-size: 2rem; margin-bottom: 20px;
+      color: var(--gold-primary);
+      transition: var(--transition);
+      position: relative; z-index: 1;
+    }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 600;
+      margin-bottom: 14px;
+      position: relative; z-index: 1;
+    }
+    .service-desc {
+      font-size: 0.9rem; color: var(--text-muted);
+      line-height: 1.75;
+      position: relative; z-index: 1;
+      margin-bottom: 24px;
+    }
+    .service-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold-primary);
+      position: relative; z-index: 1;
+      transition: gap var(--transition);
+    }
+    .service-card:hover .service-link { gap: 14px; }
+    .service-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 20px;
+      position: relative; z-index: 1;
+    }
+    .service-tag {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      transition: var(--transition);
+    }
+    .service-card:hover .service-tag {
+      border-color: var(--border-strong);
+      color: var(--gold-primary);
+    }
+
+    /* ═══════════════════════════════════════════
+       PROCESS
+    ═══════════════════════════════════════════ */
+    #process { background: var(--bg-primary); }
+    .process-header { text-align: center; margin-bottom: 70px; }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0; position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: 12.5%; right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary) 20%, var(--gold-primary) 80%, transparent);
+    }
+    .process-step {
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      padding: 0 24px;
+    }
+    .process-step-num {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-secondary);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--gold-primary);
+      margin-bottom: 24px; position: relative; z-index: 1;
+      transition: var(--transition);
+    }
+    .process-step:hover .process-step-num {
+      background: var(--gold-pale);
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 30px var(--gold-glow);
+    }
+    .process-step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .process-step-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       PORTFOLIO
+    ═══════════════════════════════════════════ */
+    #portfolio { background: var(--bg-secondary); }
+    .portfolio-header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .portfolio-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-card);
+      transition: var(--transition);
+      position: relative;
+    }
+    .portfolio-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .portfolio-card-wide {
+      grid-column: span 2;
+    }
+    .portfolio-img-wrap {
+      position: relative; overflow: hidden;
+      height: 260px; background: var(--bg-primary);
+    }
+    .portfolio-card-wide .portfolio-img-wrap { height: 320px; }
+    .portfolio-img-mock {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+      position: relative; overflow: hidden;
+    }
+    /* Unique background for each card */
+    .mock-1 { background: linear-gradient(135deg, #0a0520 0%, #1a0a35 50%, #0d1a30 100%); }
+    .mock-2 { background: linear-gradient(135deg, #050e1a 0%, #0a1f2e 50%, #051015 100%); }
+    .mock-3 { background: linear-gradient(135deg, #100505 0%, #1f0a0a 50%, #150510 100%); }
+    .mock-4 { background: linear-gradient(135deg, #050a10 0%, #0a1505 50%, #051010 100%); }
+    .mock-browser-bar {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 32px; background: rgba(0,0,0,0.5);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      display: flex; align-items: center; gap: 8px;
+      padding: 0 16px;
+    }
+    .mock-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .mock-dot-r { background: rgba(255,80,80,0.6); }
+    .mock-dot-y { background: rgba(255,200,0,0.6); }
+    .mock-dot-g { background: rgba(0,220,120,0.6); }
+    .mock-url-bar {
+      flex: 1; margin: 0 12px;
+      height: 16px; border-radius: 100px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.12);
+    }
+    .mock-content-area {
+      position: absolute; top: 32px; left: 0; right: 0; bottom: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px; padding: 24px;
+    }
+    .mock-practice-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+    }
+    .mock-tagline {
+      font-size: 0.75rem; color: rgba(255,255,255,0.3);
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .mock-btn-row {
+      display: flex; gap: 10px; margin-top: 8px;
+    }
+    .mock-pill {
+      padding: 5px 14px; border-radius: 100px;
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .mock-pill-gold {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary));
+      color: #070710;
+    }
+    .mock-pill-outline {
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold-primary);
+    }
+    .mock-stats-row {
+      display: flex; gap: 20px;
+    }
+    .mock-stat { text-align: center; }
+    .mock-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--gold-primary);
+      display: block;
+    }
+    .mock-stat-lbl {
+      font-size: 0.6rem; color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .portfolio-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(7,7,16,0.7) 0%, transparent 50%);
+      opacity: 0; transition: var(--transition);
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 24px;
+    }
+    .portfolio-card:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-view-btn {
+      padding: 8px 20px;
+      border: 1px solid var(--gold-primary);
+      border-radius: var(--radius);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold-primary);
+      background: rgba(7,7,16,0.8);
+    }
+    .portfolio-card-body {
+      padding: 24px 28px;
+      border-top: 1px solid var(--border);
+    }
+    .portfolio-category {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold-primary); margin-bottom: 8px;
+    }
+    .portfolio-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .portfolio-desc {
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESULTS / STATS SECTION
+    ═══════════════════════════════════════════ */
+    #results {
+      background: var(--bg-primary);
+      position: relative; overflow: hidden;
+    }
+    #results::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .results-content .section-sub { margin-bottom: 48px; }
+    .results-list {
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .results-item {
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .results-icon {
+      width: 20px; height: 20px; margin-top: 2px;
+      color: var(--gold-primary); flex-shrink: 0;
+    }
+    .results-text { font-size: 0.95rem; color: var(--text-muted); }
+    .results-text strong { color: var(--text-primary); }
+    .results-numbers {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .results-stat {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      background: var(--bg-card);
+      text-align: center;
+      transition: var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .results-stat::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    }
+    .results-stat:hover {
+      border-color: var(--border-strong);
+      box-shadow: 0 0 40px rgba(201,168,76,0.1);
+      transform: translateY(-3px);
+    }
+    .results-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block; line-height: 1;
+      margin-bottom: 10px;
+    }
+    .results-stat-label {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       TESTIMONIALS
+    ═══════════════════════════════════════════ */
+    #testimonials { background: var(--bg-secondary); }
+    .testimonials-header { text-align: center; margin-bottom: 70px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      background: var(--bg-card);
+      transition: var(--transition);
+      display: flex; flex-direction: column; gap: 20px;
+      position: relative; overflow: hidden;
+    }
+    .testimonial-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      opacity: 0; transition: var(--transition);
+    }
+    .testimonial-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    .testimonial-card:hover::before { opacity: 1; }
+    .testimonial-quote {
+      font-size: 2.5rem; line-height: 1;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-primary); opacity: 0.6;
+    }
+    .testimonial-stars {
+      display: flex; gap: 4px; color: var(--gold-primary);
+      font-size: 0.9rem;
+    }
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-style: italic;
+      flex: 1;
+    }
+    .testimonial-author {
+      display: flex; align-items: center; gap: 14px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+    .testimonial-avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      border: 2px solid var(--border-strong);
+      background: var(--bg-secondary);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 1rem;
+      color: var(--gold-primary); flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 0.9rem; font-weight: 700;
+    }
+    .testimonial-role {
+      font-size: 0.8rem; color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       CTA BANNER
+    ═══════════════════════════════════════════ */
+    #cta-banner {
+      background: var(--bg-primary);
+      position: relative; overflow: hidden;
+    }
+    #cta-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(201,168,76,0.08), transparent),
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.05), transparent);
+    }
+    .cta-banner-inner {
+      position: relative; z-index: 1;
+      text-align: center; padding: 120px 32px;
+      max-width: 800px; margin: 0 auto;
+    }
+    .cta-banner-inner h2 {
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      margin-bottom: 24px;
+    }
+    .cta-banner-inner p {
+      font-size: 1.1rem; color: var(--text-muted);
+      margin-bottom: 48px; line-height: 1.8;
+    }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ═══════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════ */
+    #contact { background: var(--bg-secondary); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 80px; align-items: start;
+    }
+    .contact-info .section-sub { margin-bottom: 40px; }
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-detail {
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .contact-detail-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-primary); font-size: 1rem;
+    }
+    .contact-detail-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 4px;
+    }
+    .contact-detail-value {
+      font-size: 0.95rem; color: var(--text-muted);
+    }
+    .contact-form {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      background: var(--bg-card);
+      position: relative; overflow: hidden;
+    }
+    .contact-form::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .form-group label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      color: var(--text-primary);
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .form-group select { appearance: none; cursor: pointer; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--text-dim); }
+    .form-submit { width: 100%; padding: 16px; font-size: 12px; justify-content: center; }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    #footer {
+      background: #050508;
+      border-top: 1px solid var(--border);
+      padding: 80px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 60px; margin-bottom: 60px;
+    }
+    .footer-brand .logo-title { font-size: 1.3rem; }
+    .footer-brand-desc {
+      font-size: 0.875rem; color: var(--text-muted);
+      line-height: 1.8; margin: 16px 0 24px;
+    }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social {
+      width: 38px; height: 38px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .footer-social:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+      background: var(--gold-pale);
+    }
+    .footer-col-title {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-primary); margin-bottom: 20px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a {
+      font-size: 0.875rem; color: var(--text-muted);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--gold-primary); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-copy {
+      font-size: 0.8rem; color: var(--text-dim);
+    }
+    .footer-copy a { color: var(--gold-primary); }
+    .footer-legal {
+      display: flex; gap: 24px;
+    }
+    .footer-legal a {
+      font-size: 0.8rem; color: var(--text-dim);
+      transition: color var(--transition);
+    }
+    .footer-legal a:hover { color: var(--gold-primary); }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid, .results-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-visual { order: -1; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .process-steps::before { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 80px 0; }
+      .container { padding: 0 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .services-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-card-wide { grid-column: span 1; }
+      .results-numbers { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .form-row { grid-template-columns: 1fr; }
+      .about-inner-stats { grid-template-columns: 1fr 1fr; }
+      .trust-sep { display: none; }
+      .trust-inner { justify-content: center; }
+      .contact-form { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <!-- Logo -->
+        <a class="nav-logo" href="#hero">
+          <svg class="logo-monogram" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="44" height="44" rx="4" stroke="url(#logoGrad)" stroke-width="1"/>
+            <text x="23" y="31" text-anchor="middle"
+                  font-family="Playfair Display, serif"
+                  font-size="18" font-weight="700"
+                  fill="url(#logoGrad)">DDA</text>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#9A7A35"/>
+                <stop offset="50%" stop-color="#C9A84C"/>
+                <stop offset="100%" stop-color="#E8C96A"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="logo-text-wrap">
+            <span class="logo-title">Dental Digital Agency</span>
+            <span class="logo-subtitle">Premium Dental Marketing · UK</span>
+          </div>
+        </a>
+
+        <!-- Desktop Links -->
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <a href="contact.html" class="btn btn-gold nav-cta"><span>Get Started</span></a>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu">
+    <span class="close-btn" onclick="toggleMenu()">&#x2715;</span>
+    <a href="about.html"      onclick="toggleMenu()">About</a>
+    <a href="services.html"   onclick="toggleMenu()">Services</a>
+    <a href="portfolio.html"  onclick="toggleMenu()">Portfolio</a>
+    <a href="blog.html"       onclick="toggleMenu()">Blog</a>
+    <a href="contact.html"    onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <section id="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-grid-line"></div>
+
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        UK's Premier Dental Digital Agency
+      </div>
+
+      <h1 class="hero-title">
+        We Build Brands<br />
+        <em>Dental Practices</em><br />
+        Are Proud Of
+      </h1>
+
+      <p class="hero-sub">
+        From luxury websites to full-scale digital marketing — we help dental practices attract premium patients, build trust, and grow with authority.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-gold">
+          <span>Start Your Project</span>
+          <span>→</span>
+        </a>
+        <a href="#portfolio" class="btn btn-ghost">
+          <span>View Our Work</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       TRUST STRIP
+  ══════════════════════════════════ -->
+  <div id="trust">
+    <div class="container">
+      <div class="trust-inner">
+        <div class="trust-item">
+          <span class="trust-number" data-count="120">0</span>
+          <span class="trust-label">Practices Served</span>
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+          <span class="trust-number" data-count="98">0</span>
+          <span class="trust-label">% Client Retention</span>
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+          <span class="trust-number" data-count="8">0</span>
+          <span class="trust-label">Years of Expertise</span>
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+          <span class="trust-number" data-count="4">0</span>
+          <span class="trust-label">× Avg. Revenue Growth</span>
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+          <span class="trust-number" data-count="5">0</span>
+          <span class="trust-label">★ Average Rating</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       ABOUT
+  ══════════════════════════════════ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-frame">
+            <div class="about-frame-deco">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="14" stroke="#C9A84C" stroke-width="1" stroke-dasharray="3 3"/>
+                <circle cx="20" cy="20" r="7" fill="none" stroke="#C9A84C" stroke-width="1"/>
+                <circle cx="20" cy="20" r="2" fill="#C9A84C"/>
+              </svg>
+            </div>
+            <div class="section-label">Who We Are</div>
+            <h3 style="font-size:1.6rem;margin-bottom:16px;">Specialists in<br/><em>Dental Digital</em> Growth</h3>
+            <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:28px;">
+              We are a boutique digital agency built exclusively for dental and aesthetic practices across the UK. Every strategy, every design, every campaign is crafted with one goal — filling your chair with the patients you want.
+            </p>
+            <div class="about-inner-stats">
+              <div class="about-stat-card">
+                <span class="about-stat-num">£2M+</span>
+                <span class="about-stat-lbl">Revenue Generated</span>
+              </div>
+              <div class="about-stat-card">
+                <span class="about-stat-num">120+</span>
+                <span class="about-stat-lbl">Happy Clients</span>
+              </div>
+              <div class="about-stat-card">
+                <span class="about-stat-num">8 Yrs</span>
+                <span class="about-stat-lbl">Industry Focused</span>
+              </div>
+              <div class="about-stat-card">
+                <span class="about-stat-num">UK #1</span>
+                <span class="about-stat-lbl">Dental Agency</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content reveal reveal-delay-2">
+          <div class="section-label">Our Approach</div>
+          <h2 class="section-heading">Precision Digital Strategy<br /><span class="gold-gradient">For Dental Excellence</span></h2>
+          <div class="divider"></div>
+          <p class="section-sub">
+            We don't do generic marketing. We build bespoke digital ecosystems — websites that convert, SEO that ranks, campaigns that fill appointment books, and brands that command premium fees.
+          </p>
+          <div class="about-pillars">
+            <div class="about-pillar">
+              <div class="about-pillar-icon"></div>
+              <span><strong>Dental-specific expertise</strong> — we understand patient psychology and the full treatment journey.</span>
+            </div>
+            <div class="about-pillar">
+              <div class="about-pillar-icon"></div>
+              <span><strong>Full-stack delivery</strong> — strategy, design, development, and ongoing marketing under one roof.</span>
+            </div>
+            <div class="about-pillar">
+              <div class="about-pillar-icon"></div>
+              <span><strong>Transparent reporting</strong> — real data, real results, no vanity metrics.</span>
+            </div>
+            <div class="about-pillar">
+              <div class="about-pillar-icon"></div>
+              <span><strong>White-glove service</strong> — a dedicated account team who knows your practice by name.</span>
+            </div>
+          </div>
+          <a href="#services" class="btn btn-gold">
+            <span>Explore Our Services</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SERVICES
+  ══════════════════════════════════ -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="services-header reveal">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-heading">Full-Spectrum<br /><span class="gold-gradient">Digital Services</span></h2>
+        <div class="divider" style="margin:20px auto;"></div>
+        <p class="section-sub">
+          Every service we offer is engineered specifically for dental and aesthetic practices — not adapted from generic marketing, but built from the ground up for this industry.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- 1 -->
+        <div class="service-card reveal reveal-delay-1">
+          <span class="service-num">01</span>
+          <div class="service-icon">◈</div>
+          <h3 class="service-name">Luxury Website Design</h3>
+          <div class="service-tags">
+            <span class="service-tag">Custom Design</span>
+            <span class="service-tag">Conversion CRO</span>
+            <span class="service-tag">Mobile-First</span>
+          </div>
+          <p class="service-desc">Bespoke, high-performance dental websites that radiate trust, elegance, and authority. Designed to convert visitors into booked appointments — every element purposeful.</p>
+          <a href="#contact" class="service-link">Learn More <span>→</span></a>
+        </div>
+
+        <!-- 2 -->
+        <div class="service-card reveal reveal-delay-2">
+          <span class="service-num">02</span>
+          <div class="service-icon">◉</div>
+          <h3 class="service-name">SEO & Google Ads</h3>
+          <div class="service-tags">
+            <span class="service-tag">Local SEO</span>
+            <span class="service-tag">PPC</span>
+            <span class="service-tag">Analytics</span>
+          </div>
+          <p class="service-desc">Dominate local search for high-value treatments. Our dental SEO and Google Ads campaigns put your practice at the top when it matters most — when patients are actively searching.</p>
+          <a href="#contact" class="service-link">Learn More <span>→</span></a>
+        </div>
+
+        <!-- 3 -->
+        <div class="service-card reveal reveal-delay-3">
+          <span class="service-num">03</span>
+          <div class="service-icon">◇</div>
+          <h3 class="service-name">Social Media Marketing</h3>
+          <div class="service-tags">
+            <span class="service-tag">Instagram</span>
+            <span class="service-tag">Facebook</span>
+            <span class="service-tag">TikTok</span>
+          </div>
+          <p class="service-desc">Beautiful, engaging social content that showcases your expertise and results. From strategy to creation to management — we build communities that become loyal patients.</p>
+          <a href="#contact" class="service-link">Learn More <span>→</span></a>
+        </div>
+
+        <!-- 4 -->
+        <div class="service-card reveal reveal-delay-1">
+          <span class="service-num">04</span>
+          <div class="service-icon">▣</div>
+          <h3 class="service-name">Branding & Identity</h3>
+          <div class="service-tags">
+            <span class="service-tag">Logo Design</span>
+            <span class="service-tag">Brand Guidelines</span>
+            <span class="service-tag">Stationery</span>
+          </div>
+          <p class="service-desc">A premium brand identity that positions your practice at the top of the market. Logos, colour systems, typography, and visual language crafted to attract your ideal patients.</p>
+          <a href="#contact" class="service-link">Learn More <span>→</span></a>
+        </div>
+
+        <!-- 5 -->
+        <div class="service-card reveal reveal-delay-2">
+          <span class="service-num">05</span>
+          <div class="service-icon">⬡</div>
+          <h3 class="service-name">App Development</h3>
+          <div class="service-tags">
+            <span class="service-tag">Patient Apps</span>
+            <span class="service-tag">Booking Systems</span>
+            <span class="service-tag">iOS & Android</span>
+          </div>
+          <p class="service-desc">Custom mobile and web applications that streamline the patient experience. Online booking, reminders, treatment plans, and patient portals — all branded to your practice.</p>
+          <a href="#contact" class="service-link">Learn More <span>→</span></a>
+        </div>
+
+        <!-- 6 -->
+        <div class="service-card reveal reveal-delay-3">
+          <span class="service-num">06</span>
+          <div class="service-icon">✦</div>
+          <h3 class="service-name">Full Digital Packages</h3>
+          <div class="service-tags">
+            <span class="service-tag">All-In-One</span>
+            <span class="service-tag">Managed Service</span>
+            <span class="service-tag">White Glove</span>
+          </div>
+          <p class="service-desc">Our flagship offering — a complete, managed digital presence. We handle everything from website to marketing to analytics, so you can focus entirely on dentistry.</p>
+          <a href="#contact" class="service-link">Learn More <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PROCESS
+  ══════════════════════════════════ -->
+  <section id="process" class="section">
+    <div class="container">
+      <div class="process-header reveal">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-heading">Our <span class="gold-gradient">4-Step</span> Growth System</h2>
+        <div class="divider" style="margin:20px auto;"></div>
+        <p class="section-sub" style="margin:0 auto;">A proven process refined across 120+ dental practices — from first call to full digital domination.</p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-num">01</div>
+          <h4 class="process-step-title">Discovery & Strategy</h4>
+          <p class="process-step-desc">We deep-dive into your practice, market, and goals. Competitor analysis, patient persona mapping, and a bespoke growth strategy.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-num">02</div>
+          <h4 class="process-step-title">Design & Build</h4>
+          <p class="process-step-desc">We craft every pixel with intention. Your website, brand, and digital assets are built to luxury standard — fast, beautiful, and conversion-ready.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-num">03</div>
+          <h4 class="process-step-title">Launch & Market</h4>
+          <p class="process-step-desc">We go live and activate your marketing channels. SEO, Google Ads, social media — everything fires simultaneously for maximum impact.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-4">
+          <div class="process-step-num">04</div>
+          <h4 class="process-step-title">Optimise & Scale</h4>
+          <p class="process-step-desc">We monitor, test, and refine every campaign. Monthly reports, strategic reviews, and continuous improvement keep you growing month after month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PORTFOLIO
+  ══════════════════════════════════ -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="portfolio-header">
+        <div class="reveal">
+          <div class="section-label">Our Work</div>
+          <h2 class="section-heading">Practices We've<br /><span class="gold-gradient">Transformed</span></h2>
+          <div class="divider"></div>
+        </div>
+        <a href="#contact" class="btn btn-ghost reveal reveal-delay-2"><span>Start Your Project</span></a>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <!-- Card 1 — Wide -->
+        <div class="portfolio-card portfolio-card-wide reveal">
+          <div class="portfolio-img-wrap">
+            <div class="portfolio-img-mock mock-1">
+              <div class="mock-browser-bar">
+                <div class="mock-dot mock-dot-r"></div>
+                <div class="mock-dot mock-dot-y"></div>
+                <div class="mock-dot mock-dot-g"></div>
+                <div class="mock-url-bar"></div>
+              </div>
+              <div class="mock-content-area">
+                <div class="mock-practice-name">The Smile Studio</div>
+                <div class="mock-tagline">London's Premier Cosmetic Dentistry</div>
+                <div class="mock-btn-row">
+                  <span class="mock-pill mock-pill-gold">Book Consultation</span>
+                  <span class="mock-pill mock-pill-outline">View Treatments</span>
+                </div>
+                <div class="mock-stats-row">
+                  <div class="mock-stat">
+                    <span class="mock-stat-num">4.9★</span>
+                    <span class="mock-stat-lbl">Google</span>
+                  </div>
+                  <div class="mock-stat">
+                    <span class="mock-stat-num">500+</span>
+                    <span class="mock-stat-lbl">Reviews</span>
+                  </div>
+                  <div class="mock-stat">
+                    <span class="mock-stat-num">12+</span>
+                    <span class="mock-stat-lbl">Years</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-view-btn">View Case Study</span>
+            </div>
+          </div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-category">Website Design · SEO · Branding</div>
+            <div class="portfolio-title">The Smile Studio, London</div>
+            <div class="portfolio-desc">Complete digital rebrand including a luxury website, full SEO overhaul, and Google Ads. Result: 340% increase in new patient enquiries within 6 months.</div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-img-wrap">
+            <div class="portfolio-img-mock mock-2">
+              <div class="mock-browser-bar">
+                <div class="mock-dot mock-dot-r"></div>
+                <div class="mock-dot mock-dot-y"></div>
+                <div class="mock-dot mock-dot-g"></div>
+                <div class="mock-url-bar"></div>
+              </div>
+              <div class="mock-content-area">
+                <div class="mock-practice-name">Ivory Dental</div>
+                <div class="mock-tagline">Manchester · Award-Winning Dentistry</div>
+                <div class="mock-btn-row">
+                  <span class="mock-pill mock-pill-gold">Book Now</span>
+                </div>
+                <div class="mock-stats-row">
+                  <div class="mock-stat">
+                    <span class="mock-stat-num">280%</span>
+                    <span class="mock-stat-lbl">Traffic Growth</span>
+                  </div>
+                  <div class="mock-stat">
+                    <span class="mock-stat-num">#1</span>
+                    <span class="mock-stat-lbl">Local Rank</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-view-btn">View Case Study</span>
+            </div>
+          </div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-category">Website · SEO · Social Media</div>
+            <div class="portfolio-title">Ivory Dental, Manchester</div>
+            <div class="portfolio-desc">Local SEO domination and social media management. Ranked #1 in Manchester for key cosmetic treatments within 4 months.</div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="portfolio-card reveal reveal-delay-2">
+          <div class="portfolio-img-wrap">
+            <div class="portfolio-img-mock mock-3">
+              <div class="mock-browser-bar">
+                <div class="mock-dot mock-dot-r"></div>
+                <div class="mock-dot mock-dot-y"></div>
+                <div class="mock-dot mock-dot-g"></div>
+                <div class="mock-url-bar"></div>
+              </div>
+              <div class="mock-content-area">
+                <div class="mock-practice-name">Aesthé Clinic</div>
+                <div class="mock-tagline">Birmingham · Aesthetic Excellence</div>
+                <div class="mock-btn-row">
+                  <span class="mock-pill mock-pill-gold">Enquire Now</span>
+                </div>
+                <div class="mock-stats-row">
+                  <div class="mock-stat">
+                    <span class="mock-stat-num">5×</span>
+                    <span class="mock-stat-lbl">ROI on Ads</span>
+                  </div>
+                  <div class="mock-stat">
+                    <span class="mock-stat-num">150+</span>
+                    <span class="mock-stat-lbl">New Patients/Mo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-view-btn">View Case Study</span>
+            </div>
+          </div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-category">App Dev · Branding · Google Ads</div>
+            <div class="portfolio-title">Aesthé Clinic, Birmingham</div>
+            <div class="portfolio-desc">Custom patient booking app, complete rebrand, and Google Ads management. 5× return on ad spend within the first quarter.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       RESULTS
+  ══════════════════════════════════ -->
+  <section id="results" class="section">
+    <div class="container">
+      <div class="results-grid">
+        <div class="results-content reveal">
+          <div class="section-label">Proven Results</div>
+          <h2 class="section-heading">Numbers That<br /><span class="gold-gradient">Speak For Themselves</span></h2>
+          <div class="divider"></div>
+          <p class="section-sub" style="margin-bottom:36px;">
+            Every metric we report is verifiable. We track what matters — real new patients, real revenue, real growth — not vanity numbers.
+          </p>
+          <div class="results-list">
+            <div class="results-item">
+              <svg class="results-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <div class="results-text"><strong>Average 3–5× increase</strong> in new patient enquiries within the first 90 days of engagement.</div>
+            </div>
+            <div class="results-item">
+              <svg class="results-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <div class="results-text"><strong>Page 1 Google rankings</strong> for high-value keywords in 95% of our SEO clients within 6 months.</div>
+            </div>
+            <div class="results-item">
+              <svg class="results-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <div class="results-text"><strong>Average 4× return on ad spend</strong> across all Google and Meta campaigns we manage.</div>
+            </div>
+            <div class="results-item">
+              <svg class="results-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <div class="results-text"><strong>98% client retention rate</strong> — a testament to our results and service quality.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-numbers reveal reveal-delay-2">
+          <div class="results-stat">
+            <span class="results-stat-num" data-count="340">0%</span>
+            <span class="results-stat-label">Avg. Enquiry Increase</span>
+          </div>
+          <div class="results-stat">
+            <span class="results-stat-num" data-count="95">0%</span>
+            <span class="results-stat-label">Page 1 Rankings</span>
+          </div>
+          <div class="results-stat">
+            <span class="results-stat-num" data-count="4">0×</span>
+            <span class="results-stat-label">Avg. ROAS</span>
+          </div>
+          <div class="results-stat">
+            <span class="results-stat-num" data-count="120">0+</span>
+            <span class="results-stat-label">Practices Transformed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       TESTIMONIALS
+  ══════════════════════════════════ -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="testimonials-header reveal">
+        <div class="section-label">Client Voices</div>
+        <h2 class="section-heading">What Dental Principals<br /><span class="gold-gradient">Say About Us</span></h2>
+        <div class="divider" style="margin:20px auto;"></div>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">From the initial strategy call to launch day, Dental Digital Agency exceeded every expectation. Our new website is breathtaking, and the enquiries started flowing within weeks. Absolutely elite service.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SA</div>
+            <div>
+              <div class="testimonial-name">Dr. Sara Ahmed</div>
+              <div class="testimonial-role">Principal Dentist, The Smile Studio, London</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">We went from struggling to fill appointment slots to having a 6-week waiting list for Invisalign. Their SEO and Google Ads work is genuinely world-class. Worth every penny and more.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JC</div>
+            <div>
+              <div class="testimonial-name">Dr. James Collins</div>
+              <div class="testimonial-role">Practice Owner, Ivory Dental, Manchester</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">The branding and website they built for us completely transformed how patients perceive us. We're now attracting the high-value implant and cosmetic cases we've always wanted. Truly exceptional.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PP</div>
+            <div>
+              <div class="testimonial-name">Dr. Priya Patel</div>
+              <div class="testimonial-role">Clinical Director, Aesthé Clinic, Birmingham</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       CTA BANNER
+  ══════════════════════════════════ -->
+  <section id="cta-banner">
+    <div class="cta-banner-inner reveal">
+      <div class="section-label" style="justify-content:center;">Ready to Grow?</div>
+      <h2>
+        Let's Build Something<br />
+        <em class="serif" style="font-style:italic;">Extraordinary</em> Together
+      </h2>
+      <p>
+        Join over 120 dental practices who trust Dental Digital Agency to grow their brand, their patients, and their revenue. Book a free strategy call today — no obligation, just clarity.
+      </p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-gold">
+          <span>Book Free Strategy Call</span>
+          <span>→</span>
+        </a>
+        <a href="mailto:hello@dentaldigitalagency.co.uk" class="btn btn-ghost">
+          <span>hello@dentaldigitalagency.co.uk</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       CONTACT
+  ══════════════════════════════════ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Get In Touch</div>
+          <h2 class="section-heading">Start Your<br /><span class="gold-gradient">Digital Journey</span></h2>
+          <div class="divider"></div>
+          <p class="section-sub">
+            Book a free, no-obligation strategy call with our dental marketing specialists. We'll review your current digital presence and show you exactly how we'd grow your practice.
+          </p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📍</div>
+              <div>
+                <div class="contact-detail-label">Location</div>
+                <div class="contact-detail-value">United Kingdom · Serving practices nationwide</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">✉️</div>
+              <div>
+                <div class="contact-detail-label">Email</div>
+                <div class="contact-detail-value">hello@dentaldigitalagency.co.uk</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📞</div>
+              <div>
+                <div class="contact-detail-label">Phone</div>
+                <div class="contact-detail-value">+44 (0) 800 000 0000</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">⏰</div>
+              <div>
+                <div class="contact-detail-label">Response Time</div>
+                <div class="contact-detail-value">We respond within 2 business hours</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form reveal reveal-delay-2">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:8px;">Book a Free Strategy Call</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:28px;">Complete the form and we'll be in touch within 2 hours.</p>
+
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Dr. Sarah" required />
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Ahmed" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Practice Name</label>
+              <input type="text" placeholder="The Smile Studio" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="hello@yourpractice.co.uk" required />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+44 7000 000000" />
+            </div>
+            <div class="form-group">
+              <label>Primary Service Interest</label>
+              <select>
+                <option value="">Select a service...</option>
+                <option>Luxury Website Design</option>
+                <option>SEO & Google Ads</option>
+                <option>Social Media Marketing</option>
+                <option>Branding & Identity</option>
+                <option>App Development</option>
+                <option>Full Digital Package</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tell Us About Your Practice</label>
+              <textarea placeholder="Give us a brief overview of your practice and what you'd like to achieve..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold form-submit">
+              <span>Send My Enquiry</span>
+              <span>→</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="#hero" style="margin-bottom:16px;display:inline-flex;">
+            <svg width="40" height="40" viewBox="0 0 46 46" fill="none">
+              <rect x="1" y="1" width="44" height="44" rx="4" stroke="url(#fLogoGrad)" stroke-width="1"/>
+              <text x="23" y="31" text-anchor="middle"
+                    font-family="Playfair Display, serif"
+                    font-size="18" font-weight="700"
+                    fill="url(#fLogoGrad)">DDA</text>
+              <defs>
+                <linearGradient id="fLogoGrad" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#9A7A35"/>
+                  <stop offset="50%" stop-color="#C9A84C"/>
+                  <stop offset="100%" stop-color="#E8C96A"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="logo-text-wrap" style="margin-left:12px;">
+              <span class="logo-title">Dental Digital Agency</span>
+              <span class="logo-subtitle">Premium Dental Marketing · UK</span>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            The UK's leading luxury digital agency exclusively serving dental and aesthetic practices. We build the brands, websites, and marketing systems that grow exceptional practices.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="services/website-design.html">Website Design</a></li>
+            <li><a href="services/seo-google-ads.html">SEO & Google Ads</a></li>
+            <li><a href="services/social-media.html">Social Media Marketing</a></li>
+            <li><a href="services/branding.html">Branding & Identity</a></li>
+            <li><a href="services/app-development.html">App Development</a></li>
+            <li><a href="services/full-packages.html">Full Digital Packages</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#portfolio">Our Work</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@dentaldigitalagency.co.uk">hello@dentaldigitalagency.co.uk</a></li>
+            <li><a href="tel:+448000000000">+44 (0) 800 000 0000</a></li>
+            <li><a href="#">United Kingdom</a></li>
+            <li style="margin-top:20px;">
+              <a href="#contact" class="btn btn-gold" style="padding:10px 20px;font-size:11px;">
+                <span>Book Free Call</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2025 <a href="#">Dental Digital Agency Ltd</a>. All rights reserved. Registered in England & Wales.
+        </div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════ -->
+  <script>
+    /* ─── Navbar scroll ─── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* ─── Mobile menu ─── */
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
+
+    /* ─── Scroll reveal ─── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ─── Counter animation ─── */
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.count);
+      const suffix = el.textContent.replace(/\d/g, '') || '';
+      let start = 0;
+      const duration = 1800;
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target + suffix;
+      };
+      requestAnimationFrame(step);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-count]').forEach(el => {
+      counterObserver.observe(el);
+    });
+
+    /* ─── Results stat counters ─── */
+    const resultStatEls = document.querySelectorAll('.results-stat-num[data-count]');
+    const resultCounterObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.count);
+          const rawText = el.textContent;
+          const suffix = rawText.replace(/[\d.]/g, '');
+          let start = 0;
+          const duration = 2000;
+          const step = (ts) => {
+            if (!start) start = ts;
+            const prog = Math.min((ts - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - prog, 3);
+            el.textContent = Math.floor(eased * target) + suffix;
+            if (prog < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+          resultCounterObs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    resultStatEls.forEach(el => resultCounterObs.observe(el));
+
+    /* ─── Gold Particle Canvas ─── */
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+
+    function resize() {
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x  = Math.random() * W;
+        this.y  = Math.random() * H;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3 - 0.1;
+        this.r  = Math.random() * 1.5 + 0.3;
+        this.alpha = Math.random() * 0.5 + 0.1;
+        this.life  = 0;
+        this.maxLife = Math.random() * 400 + 200;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life++;
+        if (this.life > this.maxLife || this.y < -10) this.reset();
+      }
+      draw() {
+        const fade = this.life < 40
+          ? this.life / 40
+          : this.life > this.maxLife - 40
+            ? (this.maxLife - this.life) / 40
+            : 1;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201,168,76,${this.alpha * fade})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    /* ─── Form submission ─── */
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.innerHTML = '<span>✓ Message Sent — We\'ll be in touch shortly!</span>';
+      btn.style.background = 'linear-gradient(135deg, #2d5a27, #3a7a32)';
+      btn.disabled = true;
+    }
+  </script>
+</body>
+</html>

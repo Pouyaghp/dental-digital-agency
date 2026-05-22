@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services — Dental Digital Agency</title>
+  <meta name="description" content="Explore Dental Digital Agency's full suite of luxury digital services for dental practices — websites, SEO, social media, branding, apps and more."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .services-overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .svc-card { padding: 44px 36px; cursor: default; }
+    .svc-num  { position: absolute; top: 20px; right: 24px; font-family:'Playfair Display',serif; font-size:4rem; font-weight:700; color:rgba(201,168,76,0.05); line-height:1; transition:var(--transition); }
+    .svc-card:hover .svc-num { color:rgba(201,168,76,0.10); }
+    .svc-icon { font-size:2rem; color:var(--gold-primary); margin-bottom:20px; }
+    .svc-name { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:600; margin-bottom:14px; }
+    .svc-desc { font-size:0.9rem; color:var(--text-muted); line-height:1.75; margin-bottom:20px; }
+    .svc-features { display:flex; flex-direction:column; gap:8px; margin-bottom:24px; }
+    .svc-feature { display:flex; align-items:center; gap:10px; font-size:0.875rem; color:var(--text-muted); }
+    .svc-feature::before { content:'✓'; color:var(--gold-primary); font-weight:700; font-size:0.8rem; }
+    .svc-link { display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--gold-primary); transition:gap var(--transition); }
+    .svc-card:hover .svc-link { gap:14px; }
+
+    /* Packages */
+    .packages-section { background: var(--bg-secondary); }
+    .packages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .pkg-card { padding:44px 36px; text-align:center; }
+    .pkg-badge { display:inline-block; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; padding:4px 14px; border-radius:100px; border:1px solid var(--border-strong); color:var(--gold-primary); margin-bottom:20px; }
+    .pkg-badge.featured { background:var(--gold-primary); color:#070710; border-color:var(--gold-primary); }
+    .pkg-name { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:600; margin-bottom:8px; }
+    .pkg-price { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:700; color:var(--gold-primary); line-height:1; }
+    .pkg-period { font-size:0.85rem; color:var(--text-muted); margin-bottom:24px; }
+    .pkg-divider { width:100%; height:1px; background:var(--border); margin:20px 0; }
+    .pkg-features { display:flex; flex-direction:column; gap:10px; margin-bottom:32px; text-align:left; }
+    .pkg-feature { display:flex; align-items:center; gap:10px; font-size:0.875rem; color:var(--text-muted); }
+    .pkg-feature::before { content:'✓'; color:var(--gold-primary); font-weight:700; font-size:0.8rem; flex-shrink:0; }
+    .pkg-card.featured-card { border-color:var(--border-strong); box-shadow:0 0 60px rgba(201,168,76,0.12); }
+    .pkg-card.featured-card::before { opacity:1; }
+
+    @media(max-width:1024px){ .services-overview-grid,.packages-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:768px) { .services-overview-grid,.packages-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container"><div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <svg class="logo-monogram" viewBox="0 0 46 46" fill="none"><rect x="1" y="1" width="44" height="44" rx="4" stroke="url(#ng2)" stroke-width="1"/><text x="23" y="31" text-anchor="middle" font-family="Playfair Display,serif" font-size="18" font-weight="700" fill="url(#ng2)">DDA</text><defs><linearGradient id="ng2" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9A7A35"/><stop offset="50%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#E8C96A"/></linearGradient></defs></svg>
+      <div class="logo-text-wrap"><span class="logo-title">Dental Digital Agency</span><span class="logo-subtitle">Premium Dental Marketing · UK</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li><li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-gold nav-cta"><span>Get Started</span></a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div></div>
+</nav>
+<div id="mobile-menu">
+  <span class="close-btn" onclick="toggleMenu()">&#x2715;</span>
+  <a href="about.html" onclick="toggleMenu()">About</a><a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a><a href="blog.html" onclick="toggleMenu()">Blog</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="container"><div class="page-hero-inner reveal">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>Services</div>
+    <div class="section-label" style="justify-content:center;">What We Offer</div>
+    <h1>Full-Spectrum Digital<br/><em class="gold-gradient">Services for Dentistry</em></h1>
+    <p>Every service we offer is purpose-built for dental and aesthetic practices — not adapted from generic marketing, but engineered from day one for this industry.</p>
+  </div></div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="section" style="background:var(--bg-primary);">
+  <div class="container">
+    <div class="services-overview-grid">
+
+      <div class="card svc-card reveal reveal-delay-1">
+        <span class="svc-num">01</span>
+        <div class="svc-icon">◈</div>
+        <div class="svc-name">Luxury Website Design</div>
+        <p class="svc-desc">Bespoke, high-performance dental websites that radiate trust, elegance, and authority — designed to convert visitors into booked appointments.</p>
+        <ul class="svc-features">
+          <li class="svc-feature">Custom design — no templates</li>
+          <li class="svc-feature">Mobile-first, lightning fast</li>
+          <li class="svc-feature">Conversion rate optimisation</li>
+          <li class="svc-feature">Online booking integration</li>
+          <li class="svc-feature">Before &amp; after galleries</li>
+        </ul>
+        <a href="services/website-design.html" class="svc-link">Full Details <span>→</span></a>
+      </div>
+
+      <div class="card svc-card reveal reveal-delay-2">
+        <span class="svc-num">02</span>
+        <div class="svc-icon">◉</div>
+        <div class="svc-name">SEO &amp; Google Ads</div>
+        <p class="svc-desc">Dominate local search for high-value treatments. Page 1 rankings and precision-targeted PPC that brings patients with buying intent to your door.</p>
+        <ul class="svc-features">
+          <li class="svc-feature">Local SEO dominance</li>
+          <li class="svc-feature">Google Ads management</li>
+          <li class="svc-feature">Treatment-specific keyword strategy</li>
+          <li class="svc-feature">Monthly performance reporting</li>
+          <li class="svc-feature">Google Business Profile optimisation</li>
+        </ul>
+        <a href="services/seo-google-ads.html" class="svc-link">Full Details <span>→</span></a>
+      </div>
+
+      <div class="card svc-card reveal reveal-delay-3">
+        <span class="svc-num">03</span>
+        <div class="svc-icon">◇</div>
+        <div class="svc-name">Social Media Marketing</div>
+        <p class="svc-desc">Beautiful content and strategic campaigns across Instagram, Facebook, and TikTok that build community, showcase results, and generate enquiries.</p>
+        <ul class="svc-features">
+          <li class="svc-feature">Full content creation</li>
+          <li class="svc-feature">Before &amp; after content strategy</li>
+          <li class="svc-feature">Paid social campaigns</li>
+          <li class="svc-feature">Influencer collaboration</li>
+          <li class="svc-feature">Community management</li>
+        </ul>
+        <a href="services/social-media.html" class="svc-link">Full Details <span>→</span></a>
+      </div>
+
+      <div class="card svc-card reveal reveal-delay-1">
+        <span class="svc-num">04</span>
+        <div class="svc-icon">▣</div>
+        <div class="svc-name">Branding &amp; Identity</div>
+        <p class="svc-desc">A premium brand identity that positions your practice at the top of the market. Logos, colour systems, and visual language that attract premium patients.</p>
+        <ul class="svc-features">
+          <li class="svc-feature">Logo design &amp; brand mark</li>
+          <li class="svc-feature">Full brand guidelines</li>
+          <li class="svc-feature">Stationery &amp; print design</li>
+          <li class="svc-feature">Signage &amp; environmental design</li>
+          <li class="svc-feature">Brand photography direction</li>
+        </ul>
+        <a href="services/branding.html" class="svc-link">Full Details <span>→</span></a>
+      </div>
+
+      <div class="card svc-card reveal reveal-delay-2">
+        <span class="svc-num">05</span>
+        <div class="svc-icon">⬡</div>
+        <div class="svc-name">App Development</div>
+        <p class="svc-desc">Custom mobile and web applications that streamline the patient experience. Branded booking apps, patient portals, and treatment tracking systems.</p>
+        <ul class="svc-features">
+          <li class="svc-feature">iOS &amp; Android apps</li>
+          <li class="svc-feature">Online booking systems</li>
+          <li class="svc-feature">Patient portals</li>
+          <li class="svc-feature">Appointment reminders</li>
+          <li class="svc-feature">Treatment plan sharing</li>
+        </ul>
+        <a href="services/app-development.html" class="svc-link">Full Details <span>→</span></a>
+      </div>
+
+      <div class="card svc-card reveal reveal-delay-3">
+        <span class="svc-num">06</span>
+        <div class="svc-icon">✦</div>
+        <div class="svc-name">Full Digital Packages</div>
+        <p class="svc-desc">Our flagship managed service — a complete digital presence handled end-to-end. Website, SEO, social, ads, reporting and dedicated account management.</p>
+        <ul class="svc-features">
+          <li class="svc-feature">Everything included</li>
+          <li class="svc-feature">Dedicated account manager</li>
+          <li class="svc-feature">Monthly strategy calls</li>
+          <li class="svc-feature">Priority support</li>
+          <li class="svc-feature">Quarterly growth reviews</li>
+        </ul>
+        <a href="services/full-packages.html" class="svc-link">Full Details <span>→</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES / PRICING -->
+<section class="packages-section section">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:60px;">
+      <div class="section-label" style="justify-content:center;">Pricing</div>
+      <h2 class="section-heading">Transparent <span class="gold-gradient">Investment Plans</span></h2>
+      <div class="divider mx-auto"></div>
+      <p class="section-sub mx-auto">No hidden fees. No long-term lock-ins. Just clear, honest pricing for transformative results.</p>
+    </div>
+    <div class="packages-grid">
+
+      <div class="card pkg-card reveal reveal-delay-1">
+        <span class="pkg-badge">Foundation</span>
+        <div class="pkg-name">Essentials</div>
+        <div class="pkg-price">£997</div>
+        <div class="pkg-period">per month</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li class="pkg-feature">Custom website design &amp; build</li>
+          <li class="pkg-feature">Basic local SEO</li>
+          <li class="pkg-feature">Google Business Profile</li>
+          <li class="pkg-feature">Monthly reporting</li>
+          <li class="pkg-feature">Email support</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost" style="width:100%;justify-content:center;"><span>Get Started</span></a>
+      </div>
+
+      <div class="card pkg-card featured-card reveal reveal-delay-2">
+        <span class="pkg-badge featured">Most Popular</span>
+        <div class="pkg-name">Growth</div>
+        <div class="pkg-price">£1,997</div>
+        <div class="pkg-period">per month</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li class="pkg-feature">Everything in Essentials</li>
+          <li class="pkg-feature">Advanced SEO strategy</li>
+          <li class="pkg-feature">Google Ads management</li>
+          <li class="pkg-feature">Social media (2 platforms)</li>
+          <li class="pkg-feature">Dedicated account manager</li>
+          <li class="pkg-feature">Monthly strategy call</li>
+        </ul>
+        <a href="contact.html" class="btn btn-gold" style="width:100%;justify-content:center;"><span>Get Started</span><span>→</span></a>
+      </div>
+
+      <div class="card pkg-card reveal reveal-delay-3">
+        <span class="pkg-badge">Premium</span>
+        <div class="pkg-name">Elite</div>
+        <div class="pkg-price">£3,497</div>
+        <div class="pkg-period">per month</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li class="pkg-feature">Everything in Growth</li>
+          <li class="pkg-feature">Full brand identity suite</li>
+          <li class="pkg-feature">Social media (all platforms)</li>
+          <li class="pkg-feature">App development included</li>
+          <li class="pkg-feature">Weekly strategy calls</li>
+          <li class="pkg-feature">Priority 24hr support</li>
+          <li class="pkg-feature">Quarterly business review</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost" style="width:100%;justify-content:center;"><span>Get Started</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="nav-logo" href="index.html" style="margin-bottom:16px;display:inline-flex;">
+          <svg width="40" height="40" viewBox="0 0 46 46" fill="none"><rect x="1" y="1" width="44" height="44" rx="4" stroke="url(#fg2)" stroke-width="1"/><text x="23" y="31" text-anchor="middle" font-family="Playfair Display,serif" font-size="18" font-weight="700" fill="url(#fg2)">DDA</text><defs><linearGradient id="fg2" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9A7A35"/><stop offset="50%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#E8C96A"/></linearGradient></defs></svg>
+          <div class="logo-text-wrap" style="margin-left:12px;"><span class="logo-title">Dental Digital Agency</span><span class="logo-subtitle">Premium Dental Marketing · UK</span></div>
+        </a>
+        <p class="footer-brand-desc">The UK's leading luxury digital agency exclusively serving dental and aesthetic practices.</p>
+      </div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="services/website-design.html">Website Design</a></li><li><a href="services/seo-google-ads.html">SEO &amp; Google Ads</a></li><li><a href="services/social-media.html">Social Media</a></li><li><a href="services/branding.html">Branding</a></li><li><a href="services/app-development.html">App Development</a></li><li><a href="services/full-packages.html">Full Packages</a></li></ul></div>
+      <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="mailto:hello@dentaldigitalagency.co.uk">hello@dentaldigitalagency.co.uk</a></li><li><a href="tel:+448000000000">+44 (0) 800 000 0000</a></li><li style="margin-top:16px;"><a href="contact.html" class="btn btn-gold btn-sm"><span>Book Free Call</span></a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 <a href="#">Dental Digital Agency Ltd</a>. All rights reserved.</div>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
