@@ -14,13 +14,13 @@
        ROOT VARIABLES — MIDNIGHT GOLD PALETTE
     ═══════════════════════════════════════════ */
     :root {
-      --bg-primary:    #070710;
-      --bg-secondary:  #0d0d1a;
+      --bg-primary:    #0B1929;
+      --bg-secondary:  #0D1E33;
       --bg-card:       #0f0f1e;
       --bg-card-hover: #141428;
-      --gold-primary:  #C9A84C;
-      --gold-light:    #E8C96A;
-      --gold-dark:     #9A7A35;
+      --gold-primary:  #C49A3C;
+      --gold-light:    #DEB96A;
+      --gold-dark:     #8B6E28;
       --gold-pale:     rgba(201,168,76,0.12);
       --gold-glow:     rgba(201,168,76,0.25);
       --text-primary:  #F5F0E8;
@@ -112,7 +112,7 @@
     }
     .btn-gold {
       background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
-      color: #070710;
+      color: #0B1929;
     }
     .btn-gold::before {
       content: '';
@@ -161,7 +161,7 @@
       transition: all 0.4s ease;
     }
     #navbar.scrolled {
-      background: rgba(7,7,16,0.92);
+      background: rgba(11,25,41,0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       padding: 16px 0;
@@ -234,7 +234,7 @@
     #mobile-menu {
       display: none;
       position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999;
-      background: rgba(7,7,16,0.98);
+      background: rgba(11,25,41,0.98);
       backdrop-filter: blur(20px);
       flex-direction: column; align-items: center; justify-content: center;
       gap: 40px;
@@ -728,7 +728,7 @@
     }
     .mock-pill-gold {
       background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary));
-      color: #070710;
+      color: #0B1929;
     }
     .mock-pill-outline {
       border: 1px solid rgba(201,168,76,0.3);
@@ -750,7 +750,7 @@
     }
     .portfolio-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(7,7,16,0.7) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(11,25,41,0.7) 0%, transparent 50%);
       opacity: 0; transition: var(--transition);
       display: flex; align-items: flex-end; justify-content: center;
       padding-bottom: 24px;
@@ -763,7 +763,7 @@
       font-size: 11px; font-weight: 700;
       letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--gold-primary);
-      background: rgba(7,7,16,0.8);
+      background: rgba(11,25,41,0.8);
     }
     .portfolio-card-body {
       padding: 24px 28px;
@@ -1027,7 +1027,7 @@
        FOOTER
     ═══════════════════════════════════════════ */
     #footer {
-      background: #050508;
+      background: #080F1C;
       border-top: 1px solid var(--border);
       padding: 80px 0 40px;
     }
@@ -1126,20 +1126,7 @@
       <div class="nav-inner">
         <!-- Logo -->
         <a class="nav-logo" href="#hero">
-          <svg class="logo-monogram" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="1" width="44" height="44" rx="4" stroke="url(#logoGrad)" stroke-width="1"/>
-            <text x="23" y="31" text-anchor="middle"
-                  font-family="Playfair Display, serif"
-                  font-size="18" font-weight="700"
-                  fill="url(#logoGrad)">DDA</text>
-            <defs>
-              <linearGradient id="logoGrad" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#9A7A35"/>
-                <stop offset="50%" stop-color="#C9A84C"/>
-                <stop offset="100%" stop-color="#E8C96A"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <svg class="logo-monogram" viewBox="0 0 46 46" fill="none"><path d="M8 1 L38 1 L45 8 L45 38 L38 45 L8 45 L1 38 L1 8 Z" stroke="url(#logoGrad)" stroke-width="0.9" fill="none"/><path d="M10 4 L36 4 L42 10 L42 36 L36 42 L10 42 L4 36 L4 10 Z" stroke="url(#logoGrad)" stroke-width="0.4" fill="none" opacity="0.3"/><polygon points="23,7 25.5,10 23,13 20.5,10" stroke="url(#logoGrad)" stroke-width="0.6" fill="none"/><circle cx="23" cy="10" r="0.8" fill="url(#logoGrad)"/><text x="23" y="31" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" font-weight="700" fill="url(#logoGrad)" letter-spacing="1">DDA</text><line x1="11" y1="35" x2="35" y2="35" stroke="url(#logoGrad)" stroke-width="0.5" opacity="0.45"/><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#8B6E28"/><stop offset="50%" stop-color="#C49A3C"/><stop offset="100%" stop-color="#DEB96A"/></linearGradient></defs></svg>
           <div class="logo-text-wrap">
             <span class="logo-title">Dental Digital Agency</span>
             <span class="logo-subtitle">Premium Dental Marketing · UK</span>
@@ -1258,9 +1245,9 @@
           <div class="about-frame">
             <div class="about-frame-deco">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <circle cx="20" cy="20" r="14" stroke="#C9A84C" stroke-width="1" stroke-dasharray="3 3"/>
-                <circle cx="20" cy="20" r="7" fill="none" stroke="#C9A84C" stroke-width="1"/>
-                <circle cx="20" cy="20" r="2" fill="#C9A84C"/>
+                <circle cx="20" cy="20" r="14" stroke="#C49A3C" stroke-width="1" stroke-dasharray="3 3"/>
+                <circle cx="20" cy="20" r="7" fill="none" stroke="#C49A3C" stroke-width="1"/>
+                <circle cx="20" cy="20" r="2" fill="#C49A3C"/>
               </svg>
             </div>
             <div class="section-label">Who We Are</div>
@@ -1852,20 +1839,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="nav-logo" href="#hero" style="margin-bottom:16px;display:inline-flex;">
-            <svg width="40" height="40" viewBox="0 0 46 46" fill="none">
-              <rect x="1" y="1" width="44" height="44" rx="4" stroke="url(#fLogoGrad)" stroke-width="1"/>
-              <text x="23" y="31" text-anchor="middle"
-                    font-family="Playfair Display, serif"
-                    font-size="18" font-weight="700"
-                    fill="url(#fLogoGrad)">DDA</text>
-              <defs>
-                <linearGradient id="fLogoGrad" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#9A7A35"/>
-                  <stop offset="50%" stop-color="#C9A84C"/>
-                  <stop offset="100%" stop-color="#E8C96A"/>
-                </linearGradient>
-              </defs>
-            </svg>
+            <svg width="40" height="40" viewBox="0 0 46 46" fill="none"><path d="M8 1 L38 1 L45 8 L45 38 L38 45 L8 45 L1 38 L1 8 Z" stroke="url(#fLogoGrad)" stroke-width="0.9" fill="none"/><path d="M10 4 L36 4 L42 10 L42 36 L36 42 L10 42 L4 36 L4 10 Z" stroke="url(#fLogoGrad)" stroke-width="0.4" fill="none" opacity="0.3"/><polygon points="23,7 25.5,10 23,13 20.5,10" stroke="url(#fLogoGrad)" stroke-width="0.6" fill="none"/><circle cx="23" cy="10" r="0.8" fill="url(#fLogoGrad)"/><text x="23" y="31" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" font-weight="700" fill="url(#fLogoGrad)" letter-spacing="1">DDA</text><line x1="11" y1="35" x2="35" y2="35" stroke="url(#fLogoGrad)" stroke-width="0.5" opacity="0.45"/><defs><linearGradient id="fLogoGrad" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#8B6E28"/><stop offset="50%" stop-color="#C49A3C"/><stop offset="100%" stop-color="#DEB96A"/></linearGradient></defs></svg>
             <div class="logo-text-wrap" style="margin-left:12px;">
               <span class="logo-title">Dental Digital Agency</span>
               <span class="logo-subtitle">Premium Dental Marketing · UK</span>
