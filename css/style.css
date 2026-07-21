@@ -139,7 +139,7 @@ h1,h2,h3,h4,h5 { font-family: 'Playfair Display', serif; font-weight: 600; line-
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; }
 .nav-logo   { display: flex; align-items: center; gap: 14px; cursor: pointer; }
-.logo-monogram { width: 62px; height: 62px; object-fit: contain; }
+.logo-monogram { height: 78px; width: auto; object-fit: contain; }
 .logo-text-wrap { display: flex; flex-direction: column; line-height: 1.1; }
 .logo-title {
   font-family: 'Playfair Display', serif;
