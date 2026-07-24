@@ -20,3 +20,6 @@ npm-debug.log
 # Build output (if added later)
 dist/
 build/
+
+# Local Claude Code settings
+.claude/settings.local.json
